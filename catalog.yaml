@@ -1,0 +1,6 @@
+schemaVersion: 1
+entries:
+  - plugins/azure_devops/plugin.yaml
+  - plugins/jira/plugin.yaml
+  - plugins/workday-project-data/plugin.yaml
+

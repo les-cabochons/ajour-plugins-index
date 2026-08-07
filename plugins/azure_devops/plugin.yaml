@@ -1,0 +1,32 @@
+schemaVersion: 1
+id: azure_devops
+type: connector
+title: Azure DevOps
+description: Sync Azure DevOps work items into Ajour's local backlog and update estimates from Ajour.
+author:
+  name: Alex Trépanier
+  url: https://github.com/alextrepa
+license:
+  name: MIT License
+  spdxId: MIT
+  url: https://github.com/les-cabochons/ajc-azure-devops/blob/main/LICENSE
+website: https://github.com/les-cabochons/ajc-azure-devops#readme
+repository:
+  provider: github
+  slug: les-cabochons/ajc-azure-devops
+  url: https://github.com/les-cabochons/ajc-azure-devops
+status: available
+compatibility:
+  pluginApiVersion: 1
+capabilities:
+  - work-item-sync
+  - estimate-update
+install:
+  method: github-release
+  allowPrereleases: true
+  assetPattern: '^azure_devops-[0-9A-Za-z.+-]+\.harday-connector$'
+tags:
+  - azure-devops
+  - project-management
+  - synchronization
+

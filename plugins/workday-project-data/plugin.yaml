@@ -1,0 +1,28 @@
+schemaVersion: 1
+id: workday-project-data
+type: plugin
+title: Workday project data shape
+description: Shapes project and task records for Workday-compatible file transfers without connecting to Workday.
+author:
+  name: Alex Trépanier
+  url: https://github.com/alextrepa
+license:
+  name: MIT License
+  spdxId: MIT
+  url: https://github.com/les-cabochons/ajour/blob/main/LICENSE
+website: https://github.com/les-cabochons/ajp-workday
+repository:
+  provider: github
+  slug: les-cabochons/ajp-workday
+  url: https://github.com/les-cabochons/ajp-workday
+status: coming-soon
+compatibility:
+  pluginApiVersion: 1
+capabilities:
+  - project-data-shape
+tags:
+  - workday
+  - import
+  - export
+  - data-shape
+

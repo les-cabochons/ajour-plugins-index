@@ -1,0 +1,15 @@
+{
+  "name": "@les-cabochons/ajour-plugins-index",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "pnpm@10.7.0",
+  "scripts": {
+    "validate": "node scripts/validate.mjs"
+  },
+  "devDependencies": {
+    "yaml": "2.9.0"
+  }
+}
+
