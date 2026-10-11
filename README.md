@@ -65,7 +65,7 @@ capabilities:
 install:
   method: github-release
   allowPrereleases: false
-  assetPattern: '^example-[0-9A-Za-z.+-]+\.harday-plugin$'
+  assetPattern: '^example-[0-9A-Za-z.+-]+\.ajour-plugin$'
 images:
   thumbnail: thumbnail.webp
   hero: hero.webp
