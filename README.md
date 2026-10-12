@@ -23,11 +23,12 @@ schema/
 
 The current catalog contains:
 
-| Extension | Type | Status | Repository |
+| Plugin | Capabilities | Status | Repository |
 | --- | --- | --- | --- |
 | Azure DevOps | Connector | Available (prerelease) | [ajc-azure-devops](https://github.com/les-cabochons/ajc-azure-devops) |
+| GitHub | Code host | Available (prerelease) | [ajc-github](https://github.com/les-cabochons/ajc-github) |
 | Jira | Connector | Available (prerelease) | [ajc-jira](https://github.com/les-cabochons/ajc-jira) |
-| Workday project data shape | Plugin | Coming soon | [ajp-workday](https://github.com/les-cabochons/ajp-workday) |
+| Workday schema | Schema | Coming soon | [ajp-workday](https://github.com/les-cabochons/ajp-workday) |
 
 Workday is listed so the catalog covers every current Ajour extension
 repository, but it intentionally has no `install` block until that repository
@@ -36,13 +37,15 @@ publishes an installable release.
 ## Plugin definition
 
 Every `plugin.yaml` has human-facing metadata, source and license links,
-compatibility information, capabilities, and tags. An available plugin also
+compatibility information, capabilities, feature badges, and tags. Capabilities
+are `connector`, `codeHost`, or `schema`; one plugin can declare several.
+Features describe what the plugin does, such as `work-item-sync` or
+`pull-requests`. An available plugin also
 declares how Ajour can find its installable release asset:
 
 ```yaml
-schemaVersion: 1
+schemaVersion: 2
 id: example
-type: plugin
 title: Example plugin
 description: Adds an example capability to Ajour.
 author:
@@ -61,6 +64,8 @@ status: available
 compatibility:
   pluginApiVersion: 1
 capabilities:
+  - schema
+features:
   - project-data-shape
 install:
   method: github-release
@@ -82,6 +87,13 @@ The complete machine-readable contracts are in `schema/`. Schema versions are
 independent from an extension's `compatibility.pluginApiVersion`: the former
 versions this catalog format, while the latter tells Ajour which plugin host
 contract the extension needs.
+
+Catalog schema version 2 replaces `type` with `capabilities` and moves the old
+feature slugs to `features`. Ajour clients that only understand schema version 1
+cannot consume this index and use their cached or built-in catalog. Release
+this index with the Ajour catalog update and the plugin API version 2 packages
+for GitHub, Jira, and Azure DevOps. The separate schema-plugin API remains at
+version 1.
 
 ## Ajour consumption
 

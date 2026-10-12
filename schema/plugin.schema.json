@@ -7,7 +7,6 @@
   "required": [
     "schemaVersion",
     "id",
-    "type",
     "title",
     "description",
     "author",
@@ -17,18 +16,16 @@
     "status",
     "compatibility",
     "capabilities",
+    "features",
     "tags"
   ],
   "properties": {
     "schemaVersion": {
-      "const": 1
+      "const": 2
     },
     "id": {
       "type": "string",
       "pattern": "^[a-z0-9][a-z0-9_-]{1,63}$"
-    },
-    "type": {
-      "enum": ["connector", "plugin"]
     },
     "title": {
       "type": "string",
@@ -97,7 +94,13 @@
       }
     },
     "capabilities": {
-      "$ref": "#/$defs/slugs"
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "enum": ["connector", "codeHost", "schema"]
+      }
     },
     "install": {
       "type": "object",
@@ -131,6 +134,9 @@
       }
     },
     "tags": {
+      "$ref": "#/$defs/slugs"
+    },
+    "features": {
       "$ref": "#/$defs/slugs"
     }
   },
@@ -200,4 +206,3 @@
     }
   }
 }
-

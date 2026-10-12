@@ -1,6 +1,5 @@
-schemaVersion: 1
+schemaVersion: 2
 id: workday-project-data
-type: plugin
 title: Workday project data shape
 description: Shapes project and task records for Workday-compatible file transfers without connecting to Workday.
 author:
@@ -19,6 +18,8 @@ status: coming-soon
 compatibility:
   pluginApiVersion: 1
 capabilities:
+  - schema
+features:
   - project-data-shape
 tags:
   - workday
