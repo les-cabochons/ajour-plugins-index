@@ -1,6 +1,5 @@
-schemaVersion: 1
+schemaVersion: 2
 id: azure_devops
-type: connector
 title: Azure DevOps
 description: Sync Azure DevOps work items into Ajour's local backlog and update estimates from Ajour.
 author:
@@ -17,8 +16,10 @@ repository:
   url: https://github.com/les-cabochons/ajc-azure-devops
 status: available
 compatibility:
-  pluginApiVersion: 1
+  pluginApiVersion: 2
 capabilities:
+  - connector
+features:
   - work-item-sync
   - estimate-update
 install:

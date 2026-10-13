@@ -99,19 +99,16 @@ function checkSlugList(file, value, label) {
 
 function validatePlugin(file, plugin, expectedId) {
   const topLevelKeys = [
-    "schemaVersion", "id", "type", "title", "description", "author",
+    "schemaVersion", "id", "title", "description", "author",
     "license", "website", "repository", "status", "compatibility",
-    "capabilities", "install", "images", "tags",
+    "capabilities", "features", "install", "images", "tags",
   ];
   const requiredKeys = topLevelKeys.filter((key) => !["install", "images"].includes(key));
   if (!checkRecord(file, plugin, "plugin", requiredKeys, topLevelKeys)) return;
 
-  if (plugin.schemaVersion !== 1) fail(file, "plugin.schemaVersion must equal 1");
+  if (plugin.schemaVersion !== 2) fail(file, "plugin.schemaVersion must equal 2");
   if (checkString(file, plugin.id, "plugin.id", { max: 64, pattern: idPattern }) && plugin.id !== expectedId) {
     fail(file, `plugin.id must match its directory name "${expectedId}"`);
-  }
-  if (!["connector", "plugin"].includes(plugin.type)) {
-    fail(file, "plugin.type must be connector or plugin");
   }
   checkString(file, plugin.title, "plugin.title", { max: 80 });
   checkString(file, plugin.description, "plugin.description", { max: 500 });
@@ -153,7 +150,12 @@ function validatePlugin(file, plugin, expectedId) {
     }
   }
 
-  checkSlugList(file, plugin.capabilities, "plugin.capabilities");
+  if (!Array.isArray(plugin.capabilities) || plugin.capabilities.length < 1 || plugin.capabilities.length > 3) {
+    fail(file, "plugin.capabilities must contain between 1 and 3 values");
+  } else if (plugin.capabilities.some((capability) => !["connector", "codeHost", "schema"].includes(capability)) || new Set(plugin.capabilities).size !== plugin.capabilities.length) {
+    fail(file, "plugin.capabilities must contain unique connector, codeHost, or schema values");
+  }
+  checkSlugList(file, plugin.features, "plugin.features");
   checkSlugList(file, plugin.tags, "plugin.tags");
 
   if (plugin.status === "available" && !plugin.install) {
@@ -218,7 +220,7 @@ parseJson(path.join(repoRoot, "schema", "catalog.schema.json"));
 parseJson(path.join(repoRoot, "schema", "plugin.schema.json"));
 
 if (checkRecord(catalogFile, catalog, "catalog", ["schemaVersion", "entries"], ["schemaVersion", "entries"])) {
-  if (catalog.schemaVersion !== 1) fail(catalogFile, "catalog.schemaVersion must equal 1");
+  if (catalog.schemaVersion !== 2) fail(catalogFile, "catalog.schemaVersion must equal 2");
   if (!Array.isArray(catalog.entries) || catalog.entries.length === 0) {
     fail(catalogFile, "catalog.entries must be a non-empty array");
   } else {
