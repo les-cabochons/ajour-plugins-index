@@ -16,7 +16,7 @@ repository:
   url: https://github.com/les-cabochons/ajc-jira
 status: available
 compatibility:
-  pluginApiVersion: 2
+  pluginApiVersion: 3
 capabilities:
   - connector
 features:
