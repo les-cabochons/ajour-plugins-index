@@ -16,7 +16,7 @@ repository:
   url: https://github.com/les-cabochons/ajc-github
 status: available
 compatibility:
-  pluginApiVersion: 2
+  pluginApiVersion: 3
 capabilities:
   - codeHost
 features:
