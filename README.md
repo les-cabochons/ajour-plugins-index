@@ -25,8 +25,8 @@ The current catalog contains:
 
 | Plugin | Capabilities | Status | Repository |
 | --- | --- | --- | --- |
-| Azure DevOps | Connector | Available (prerelease) | [ajc-azure-devops](https://github.com/les-cabochons/ajc-azure-devops) |
-| GitHub | Code host | Available (prerelease) | [ajc-github](https://github.com/les-cabochons/ajc-github) |
+| Azure DevOps | Connector, code host | Available (prerelease) | [ajc-azure-devops](https://github.com/les-cabochons/ajc-azure-devops) |
+| GitHub | Connector, code host | Available (prerelease) | [ajc-github](https://github.com/les-cabochons/ajc-github) |
 | Jira | Connector | Available (prerelease) | [ajc-jira](https://github.com/les-cabochons/ajc-jira) |
 | Workday schema | Schema | Coming soon | [ajp-workday](https://github.com/les-cabochons/ajp-workday) |
 
