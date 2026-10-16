@@ -1,7 +1,7 @@
 schemaVersion: 2
 id: github
 title: GitHub
-description: Sync GitHub pull requests you authored or were asked to review into Ajour.
+description: Bring your GitHub issues into Ajour's backlog, and the pull requests you wrote or were asked to review.
 author:
   name: Alex Trépanier
   url: https://github.com/alextrepa
@@ -18,8 +18,10 @@ status: available
 compatibility:
   pluginApiVersion: 3
 capabilities:
+  - connector
   - codeHost
 features:
+  - work-item-sync
   - pull-requests
 install:
   method: github-release

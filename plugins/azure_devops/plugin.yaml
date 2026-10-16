@@ -1,7 +1,7 @@
 schemaVersion: 2
 id: azure_devops
 title: Azure DevOps
-description: Sync Azure DevOps work items into Ajour's local backlog and update estimates from Ajour.
+description: Sync Azure DevOps work items into Ajour's local backlog and update estimates from Ajour, and bring in your pull requests.
 author:
   name: Alex Trépanier
   url: https://github.com/alextrepa
@@ -19,9 +19,11 @@ compatibility:
   pluginApiVersion: 3
 capabilities:
   - connector
+  - codeHost
 features:
   - work-item-sync
   - estimate-update
+  - pull-requests
 install:
   method: github-release
   allowPrereleases: true
