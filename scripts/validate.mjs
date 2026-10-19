@@ -152,8 +152,8 @@ function validatePlugin(file, plugin, expectedId) {
 
   if (!Array.isArray(plugin.capabilities) || plugin.capabilities.length < 1 || plugin.capabilities.length > 3) {
     fail(file, "plugin.capabilities must contain between 1 and 3 values");
-  } else if (plugin.capabilities.some((capability) => !["connector", "codeHost", "schema"].includes(capability)) || new Set(plugin.capabilities).size !== plugin.capabilities.length) {
-    fail(file, "plugin.capabilities must contain unique connector, codeHost, or schema values");
+  } else if (plugin.capabilities.some((capability) => !["connector", "codeHost", "calendar", "team", "agentTask", "schema"].includes(capability)) || new Set(plugin.capabilities).size !== plugin.capabilities.length) {
+    fail(file, "plugin.capabilities must contain unique connector, codeHost, calendar, team, agentTask, or schema values");
   }
   checkSlugList(file, plugin.features, "plugin.features");
   checkSlugList(file, plugin.tags, "plugin.tags");

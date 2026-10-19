@@ -99,7 +99,7 @@
       "maxItems": 3,
       "uniqueItems": true,
       "items": {
-        "enum": ["connector", "codeHost", "schema"]
+        "enum": ["connector", "codeHost", "calendar", "team", "agentTask", "schema"]
       }
     },
     "install": {

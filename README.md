@@ -28,6 +28,7 @@ The current catalog contains:
 | Azure DevOps | Connector | Available (prerelease) | [ajc-azure-devops](https://github.com/les-cabochons/ajc-azure-devops) |
 | GitHub | Code host | Available (prerelease) | [ajc-github](https://github.com/les-cabochons/ajc-github) |
 | Jira | Connector | Available (prerelease) | [ajc-jira](https://github.com/les-cabochons/ajc-jira) |
+| Workday (agent) | Agent task | Available (prerelease) | [ajp-workday-agent](https://github.com/les-cabochons/ajp-workday-agent) |
 | Workday schema | Schema | Coming soon | [ajp-workday](https://github.com/les-cabochons/ajp-workday) |
 
 Workday is listed so the catalog covers every current Ajour extension
