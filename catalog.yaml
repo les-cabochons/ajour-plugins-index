@@ -3,5 +3,6 @@ entries:
   - plugins/azure_devops/plugin.yaml
   - plugins/github/plugin.yaml
   - plugins/jira/plugin.yaml
+  - plugins/workday-agent/plugin.yaml
   - plugins/workday-project-data/plugin.yaml
 
