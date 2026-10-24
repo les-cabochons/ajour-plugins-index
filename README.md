@@ -2,7 +2,9 @@
 
 This repository is the catalog Ajour uses to discover connectors and plugins.
 It contains metadata and artwork only; installable code remains in each
-extension's own repository and release assets.
+extension's repository and release assets. The official plugins live together
+in [ajour-plugins](https://github.com/les-cabochons/ajour-plugins) and publish
+their releases from it.
 
 ## Catalog layout
 
@@ -23,17 +25,17 @@ schema/
 
 The current catalog contains:
 
-| Plugin | Capabilities | Status | Repository |
+| Plugin | Capabilities | Status | Source |
 | --- | --- | --- | --- |
-| Azure DevOps | Connector, code host | Available (prerelease) | [ajc-azure-devops](https://github.com/les-cabochons/ajc-azure-devops) |
-| GitHub | Connector, code host | Available (prerelease) | [ajc-github](https://github.com/les-cabochons/ajc-github) |
-| Jira | Connector | Available (prerelease) | [ajc-jira](https://github.com/les-cabochons/ajc-jira) |
-| Workday (agent) | Agent task | Available (prerelease) | [ajp-workday-agent](https://github.com/les-cabochons/ajp-workday-agent) |
-| Workday schema | Schema | Coming soon | [ajp-workday](https://github.com/les-cabochons/ajp-workday) |
+| Azure DevOps | Connector, code host | Available (prerelease) | [plugins/azure-devops](https://github.com/les-cabochons/ajour-plugins/tree/main/plugins/azure-devops) |
+| GitHub | Connector, code host | Available (prerelease) | [plugins/github](https://github.com/les-cabochons/ajour-plugins/tree/main/plugins/github) |
+| Jira | Connector | Available (prerelease) | [plugins/jira](https://github.com/les-cabochons/ajour-plugins/tree/main/plugins/jira) |
+| Workday (agent) | Agent task | Available (prerelease) | [plugins/workday-agent](https://github.com/les-cabochons/ajour-plugins/tree/main/plugins/workday-agent) |
+| Workday schema | Schema | Coming soon | [plugins/workday-project-data](https://github.com/les-cabochons/ajour-plugins/tree/main/plugins/workday-project-data) |
 
-Workday is listed so the catalog covers every current Ajour extension
-repository, but it intentionally has no `install` block until that repository
-publishes an installable release.
+Workday schema is listed so the catalog covers every current Ajour extension,
+but it intentionally has no `install` block until it publishes an installable
+release.
 
 ## Plugin definition
 
@@ -71,13 +73,18 @@ features:
 install:
   method: github-release
   allowPrereleases: false
-  assetPattern: '^example-[0-9A-Za-z.+-]+\.ajour-plugin$'
+  assetPattern: '^example-[0-9][0-9A-Za-z.+-]*\.ajour-plugin$'
 images:
   thumbnail: thumbnail.webp
   hero: hero.webp
 tags:
   - example
 ```
+
+Several plugins can share one repository's releases, as the official ones do.
+Ajour picks a release by its assets, so an `assetPattern` must match only its
+own plugin's archives: start the version part with a digit, so that
+`^jira-[0-9]…` never matches a `jira-cloud-1.0.0` archive.
 
 Image paths are optional. When present, they must be local to the plugin
 directory and use PNG, JPEG, WebP, or AVIF. Use a square image of at least
