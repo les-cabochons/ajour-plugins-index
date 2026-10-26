@@ -8,12 +8,12 @@ author:
 license:
   name: MIT License
   spdxId: MIT
-  url: https://github.com/les-cabochons/ajour/blob/main/LICENSE
-website: https://github.com/les-cabochons/ajp-workday
+  url: https://github.com/les-cabochons/ajour-plugins/blob/main/plugins/workday-project-data/LICENSE
+website: https://github.com/les-cabochons/ajour-plugins/tree/main/plugins/workday-project-data#readme
 repository:
   provider: github
-  slug: les-cabochons/ajp-workday
-  url: https://github.com/les-cabochons/ajp-workday
+  slug: les-cabochons/ajour-plugins
+  url: https://github.com/les-cabochons/ajour-plugins
 status: coming-soon
 compatibility:
   pluginApiVersion: 1
